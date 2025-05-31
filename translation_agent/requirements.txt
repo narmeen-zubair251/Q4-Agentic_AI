@@ -1,0 +1,8 @@
+streamlit
+asyncio
+Agent
+AsyncOpenAI 
+OpenAIChatCompletionsModel 
+RunConfig
+Runner
+python-dotenv
