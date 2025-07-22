@@ -5,32 +5,6 @@ from connection import config
 import requests
 import rich
 
-#Loads the .env file which contains GEMINI_API_KEY
-load_dotenv()
-
-#Retrieves Gemini API key from the environment variables
-gemini_api_key = os.getenv("GEMINI_API_KEY")
-
-if not gemini_api_key :
-    raise ValueError("Your GEMINI_API_KEY is not set .")
-
-#Setting up the geimini Api model
-external_client = AsyncOpenAI(
-    api_key = gemini_api_key ,
-    base_url = "https://generativelanguage.googleapis.com/v1beta/openai/"
-)
-
-model = OpenAIChatCompletionsModel(
-    model = "gemini-2.0-flash" ,
-    openai_client = external_client ,
-)
-
-config = RunConfig(
-    model = model ,
-    model_provider = external_client ,
-    tracing_disabled = True
-)
-
 #Creating a function as a tool which sends request to website API tp get products data
 @function_tool
 def get_products():
