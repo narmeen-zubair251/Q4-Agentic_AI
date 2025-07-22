@@ -1,11 +1,9 @@
-from agents import Agent, Runner, function_tool , AsyncOpenAI , OpenAIChatCompletionsModel, RunConfig 
-from dotenv import load_dotenv
-import os
+from agents import Agent, Runner, function_tool 
 from connection import config
 import requests
 import rich
 
-#Creating a function as a tool which sends request to website API tp get products data
+#Creating a function as a tool which sends request to website API t0 get products data
 @function_tool
 def get_products():
     url = "https://template-03-api.vercel.app/api/products"
@@ -21,7 +19,7 @@ agent = Agent(
     tools = [get_products]
 )
 
-#Runnig the agent
+#Running the agent
 result = Runner.run_sync(
     agent , 
     input = "Show me all the product list " ,
