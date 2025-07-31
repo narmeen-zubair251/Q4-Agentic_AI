@@ -38,8 +38,8 @@ async def main():
     with trace("poetry_analyzer-agent"):
       result = await Runner.run(
          parent_agent,
-         """وہ چاندنی رات تھی، جب وہ گاؤں سے چلی گئی،
-آنسو بھی تھے ساتھ، اور ماں کی دعا بھی گئی""",
+         """Beneath the stars, the silence sings,
+            Of whispered dreams on moonlit wings.""",
          run_config = config)
       print(result.final_output)
       print("Last Agent ==> " , result.last_agent.name)
